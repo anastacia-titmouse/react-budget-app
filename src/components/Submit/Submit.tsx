@@ -3,8 +3,7 @@ import { useExpensesContext } from "../../context/ExpensesListContext/ExpensesLi
 export const Submit = () => {
   const { setNewExpense } = useExpensesContext();
 
-  const handleSubmit = () =>
-    setNewExpense({ id: "123dd", title: "auto", cost: 3500 });
+  const handleSubmit = () => setNewExpense({ id: "123dd", title: "auto", cost: 30 });
 
   return <button onClick={handleSubmit}>Done</button>;
 };

@@ -1,18 +1,26 @@
+import { useCurrencyContext } from "../../context/CurrencyContext/CurrencyContext";
 import { useExpensesContext } from "../../context/ExpensesListContext/ExpensesListContext";
-import { Badge } from "../Badge/Badge";
 
-export const ExpensesListItem = () => {
-  const { expenses } = useExpensesContext();
+interface IProps {
+  title: string;
+  cost: number;
+  id: string;
+}
+
+export const ExpensesListItem = ({ title, cost, id }: IProps) => {
+  const { currentCurrency } = useCurrencyContext();
+  const { deleteExpense } = useExpensesContext();
+  const handleDelete = () => {
+    deleteExpense(id);
+  };
   return (
-    <div>
-      {expenses.map(({ id, title, cost }) => {
-        return (
-          <li key={id}>
-            {title} = {cost}
-          </li>
-        );
-      })}
-      <Badge />
-    </div>
+    <li>
+      <p>{title}</p>
+      <span>
+        {currentCurrency.value}
+        {cost}
+      </span>
+      <button onClick={handleDelete} />
+    </li>
   );
 };

@@ -15,7 +15,7 @@ export const BudgetCard = () => {
 
   const handleSave = () => {
     setIsEditMode(false);
-    setNewBudget({ currency: "$", budgetSum: +inputValue.value });
+    setNewBudget(+inputValue.value);
   };
   return (
     <StyledBudgetCard>
@@ -26,14 +26,7 @@ export const BudgetCard = () => {
         </>
       ) : (
         <>
-          {budget.map(({ currency, budgetSum }) => {
-            return (
-              <StyledTitle>
-                Budget: {currency}
-                {budgetSum}
-              </StyledTitle>
-            );
-          })}
+          <StyledTitle>Budget:{budget}</StyledTitle>
           <button onClick={handleEdit}>Edit</button>
         </>
       )}

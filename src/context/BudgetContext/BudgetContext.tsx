@@ -1,32 +1,33 @@
 import { createContext, ReactNode, useContext, useState } from "react";
+import { IBudgetContext } from "../../types/types";
 
 interface IBudgetContextProviderProps {
   children: ReactNode;
 }
 
-interface IBudget {
-  currency: string;
-  budgetSum: number;
-}
-
-interface IBudgetContext {
-  budget: IBudget[];
-  setNewBudget: (budget: IBudget) => void;
-}
 export const BudgetContext = createContext<IBudgetContext>({} as IBudgetContext);
 
-export const useBudgetContexValue = () => {
+export const useBudgetContextValue = () => {
   const [budgetContext, setBudgetContext] = useState<IBudgetContext>(() => ({
-    budget: [
-      {
-        budgetSum: 0,
-        currency: "$",
-      },
-    ],
+    budget: 0,
     setNewBudget: (newBudget) => {
-      setBudgetContext((context) => ({
-        ...context,
-        budget: [newBudget],
+      setBudgetContext((ctx) => ({
+        ...ctx,
+        budget: newBudget,
+      }));
+    },
+    remaining: 0,
+    setNewRemaining: () => {
+      setBudgetContext((ctx) => ({
+        ...ctx,
+        remaining: ctx.budget - ctx.spending,
+      }));
+    },
+    spending: 0,
+    setNewSpending: (value) => {
+      setBudgetContext((ctx) => ({
+        ...ctx,
+        spending: ctx.spending + value,
       }));
     },
   }));
@@ -36,5 +37,7 @@ export const useBudgetContexValue = () => {
 export const useBudgetContext = () => useContext<IBudgetContext>(BudgetContext);
 
 export const BudgetContextProvider = ({ children }: IBudgetContextProviderProps) => {
-  return <BudgetContext.Provider value={useBudgetContexValue()}>{children}</BudgetContext.Provider>;
+  return (
+    <BudgetContext.Provider value={useBudgetContextValue()}>{children}</BudgetContext.Provider>
+  );
 };

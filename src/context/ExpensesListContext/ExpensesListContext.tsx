@@ -13,23 +13,33 @@ interface IExpense {
 interface IExpensesContext {
   expenses: IExpense[];
   setNewExpense: (expense: IExpense) => void;
+  deleteExpense: (id: string) => void;
+  searchExpense: (name: string) => void;
+  searchValue: string;
 }
 
 export const ExpensesContext = createContext<IExpensesContext>({} as IExpensesContext);
 
 const useExpensesContextValue = () => {
   const [expensesContext, setExpensesContext] = useState<IExpensesContext>(() => ({
-    expenses: [
-      {
-        id: "21324",
-        title: "cucumbers",
-        cost: 30,
-      },
-    ],
+    expenses: [],
     setNewExpense: (newExpense) => {
       setExpensesContext((context) => ({
         ...context,
         expenses: [...context.expenses, newExpense],
+      }));
+    },
+    deleteExpense: (id) => {
+      setExpensesContext((ctx) => ({
+        ...ctx,
+        expenses: ctx.expenses.filter((expense) => expense.id !== id),
+      }));
+    },
+    searchValue: "",
+    searchExpense: (name) => {
+      setExpensesContext((ctx) => ({
+        ...ctx,
+        searchValue: name.toLowerCase(),
       }));
     },
   }));
