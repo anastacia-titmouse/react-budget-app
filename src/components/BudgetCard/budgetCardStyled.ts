@@ -16,3 +16,15 @@ export const StyledTitle = styled.p`
   font-size: 20px;
   line-height: 24px;
 `;
+
+export const StyledButton = styled.button`
+  width: 85px;
+  height: 36px;
+  border-radius: 10px;
+  border: none;
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  color: #000000;
+`;

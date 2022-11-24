@@ -1,19 +1,18 @@
-import { useState } from "react";
 import { useBudgetContext } from "../../context/BudgetContext/BudgetContext";
 import { useCurrencyContext } from "../../context/CurrencyContext/CurrencyContext";
+import { RemainingCardText } from "./remainingStyled";
 
 export const RemainingCard = () => {
   const { currentCurrency } = useCurrencyContext();
   const { remaining } = useBudgetContext();
   if (remaining < 0) {
     return (
-      <div>
+      <RemainingCardText>
         Overspending by {currentCurrency.value}
         {Math.abs(remaining)}
-      </div>
+      </RemainingCardText>
     );
   }
-
   return (
     <div>
       Remaining: {currentCurrency.value}

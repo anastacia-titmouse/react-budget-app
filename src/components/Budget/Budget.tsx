@@ -1,17 +1,20 @@
 import { BudgetCard } from "../BudgetCard/BudgetCard";
 import { CurrencySelect } from "../CurrencySelect/CurrencySelect";
-import { RemainingCard } from "../RemainingCard/RemainingCard";
-import { SpentCard } from "../SpentCard/SpentCard";
+import { RemainingCardStyled } from "../RemainingCard/remainingStyled";
+import { SpentcardStyled } from "../SpentCard/spentCardStyled";
 import { Title } from "../Title/Title";
+import { BudgetStyled, HeadStyled } from "./budgetStyled";
 
 export const Budget = () => {
   return (
-    <div>
-      <Title />
-      <CurrencySelect />
+    <BudgetStyled>
+      <HeadStyled>
+        <Title />
+        <CurrencySelect />
+      </HeadStyled>
       <BudgetCard />
-      <RemainingCard />
-      <SpentCard />
-    </div>
+      <RemainingCardStyled />
+      <SpentcardStyled />
+    </BudgetStyled>
   );
 };
