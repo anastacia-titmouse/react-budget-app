@@ -17,14 +17,14 @@ export const useBudgetContextValue = () => {
       }));
     },
     remaining: 0,
-    setNewRemaining: () => {
+    setRemaining: () => {
       setBudgetContext((ctx) => ({
         ...ctx,
         remaining: ctx.budget - ctx.spending,
       }));
     },
     spending: 0,
-    setNewSpending: (value) => {
+    setSpending: (value) => {
       setBudgetContext((ctx) => ({
         ...ctx,
         spending: ctx.spending + value,

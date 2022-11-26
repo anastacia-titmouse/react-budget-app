@@ -1,13 +1,14 @@
-import { ExpensesList } from "../ExpensesList/ExpensesList";
-import { ExpensesSearch } from "../ExpensesSearch/ExpensesSearch";
 import { Title } from "../Title/Title";
+import { ExpensesList } from "../ExpensesList/ExpensesList";
+import { Search } from "../Search/Search";
+import { StyledExpenses } from "./expensesStyled";
 
 export const Expenses = () => {
   return (
-    <div>
-      <Title />
+    <StyledExpenses>
+      <Title label={"Expenses"} />
       <ExpensesList />
-      <ExpensesSearch />
-    </div>
+      <Search />
+    </StyledExpenses>
   );
 };

@@ -1,20 +1,21 @@
 import { BudgetCard } from "../BudgetCard/BudgetCard";
 import { CurrencySelect } from "../CurrencySelect/CurrencySelect";
-import { RemainingCardStyled } from "../RemainingCard/remainingStyled";
-import { SpentcardStyled } from "../SpentCard/spentCardStyled";
-import { Title } from "../Title/Title";
+
 import { BudgetStyled, HeadStyled } from "./budgetStyled";
+import { Title } from "../Title/Title";
+import { RemainingCard } from "../RemainingCard/RemainingCard";
+import { SpentCard } from "../SpentCard/SpentCard";
 
 export const Budget = () => {
   return (
     <BudgetStyled>
       <HeadStyled>
-        <Title />
+        <Title label={"Budget App"} />
         <CurrencySelect />
       </HeadStyled>
       <BudgetCard />
-      <RemainingCardStyled />
-      <SpentcardStyled />
+      <RemainingCard />
+      <SpentCard />
     </BudgetStyled>
   );
 };

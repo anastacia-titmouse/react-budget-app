@@ -1,5 +1,12 @@
 import { useCurrencyContext } from "../../context/CurrencyContext/CurrencyContext";
 import { useExpensesContext } from "../../context/ExpensesListContext/ExpensesListContext";
+import { ReactComponent as DeleteButton } from "../../assets/icons/close.svg";
+import {
+  StyledItemBadge,
+  StyledItemDelete,
+  StyledItemText,
+  StyledListItem,
+} from "./listItemStyled";
 
 interface IProps {
   title: string;
@@ -14,13 +21,15 @@ export const ExpensesListItem = ({ title, cost, id }: IProps) => {
     deleteExpense(id);
   };
   return (
-    <li>
-      <p>{title}</p>
-      <span>
+    <StyledListItem>
+      <StyledItemText>{title}</StyledItemText>
+      <StyledItemBadge>
         {currentCurrency.value}
         {cost}
-      </span>
-      <button onClick={handleDelete} />
-    </li>
+      </StyledItemBadge>
+      <StyledItemDelete onClick={handleDelete}>
+        <DeleteButton />
+      </StyledItemDelete>
+    </StyledListItem>
   );
 };

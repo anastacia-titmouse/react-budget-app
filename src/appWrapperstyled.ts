@@ -1,8 +1,12 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-  display: grid;
-  border: 1px solid #333;
-  width: 32%;
-  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 30px 20px;
+  width: 500px;
+  @media (max-width: 390px) {
+    width: 300px;
+  }
 `;
