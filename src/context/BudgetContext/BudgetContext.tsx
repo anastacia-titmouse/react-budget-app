@@ -19,10 +19,10 @@ export const useBudgetContextValue = () => {
         remaining: ctx.budget - ctx.spending,
       }));
     },
-    returnRemaining: () => {
+    returnRemaining: (value) => {
       setBudgetContext((ctx) => ({
         ...ctx,
-        remaining: ctx.remaining + ctx.spending,
+        remaining: ctx.remaining + +value,
       }));
     },
     spending: 0,

@@ -21,7 +21,7 @@ export const ExpensesListItem = ({ title, cost, id }: IProps) => {
   const { deleteExpense } = useExpensesContext();
   const handleDelete = () => {
     deleteExpense(id);
-    returnRemaining();
+    returnRemaining(+cost);
     returnSpending(cost);
   };
   return (
