@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useExpensesContext } from "../../context/ExpensesListContext/ExpensesListContext";
 import { ExpensesListItem } from "../ExpensesListItem/ExpensesListItem";
-import { StyledList } from "./listStyled";
+import { StyledEmptyList, StyledList } from "./listStyled";
 
 export const ExpensesList = () => {
   const { expenses, searchValue } = useExpensesContext();
@@ -9,6 +9,9 @@ export const ExpensesList = () => {
   useEffect(() => {
     setSearchExpenses(expenses.filter((exp) => exp.title.toLowerCase().includes(searchValue)));
   }, [searchValue, expenses]);
+  if (!searchExpenses.length) {
+    return <StyledEmptyList>Oooops!🙈</StyledEmptyList>;
+  }
   return (
     <StyledList>
       {searchExpenses.map(({ title, cost, id }) => (

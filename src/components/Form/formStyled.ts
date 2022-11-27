@@ -1,11 +1,11 @@
 import styled from "styled-components";
+import { Color } from "../../config/color";
 
 export const StyledForm = styled.form`
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
+  display: grid;
+  row-gap: 15px;
   .form-field__error {
-    color: red;
+    color: ${Color.Red};
   }
 `;
 export const StyledInputForm = styled.input`

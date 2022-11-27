@@ -7,8 +7,8 @@ export const Expenses = () => {
   return (
     <StyledExpenses>
       <Title label={"Expenses"} />
-      <ExpensesList />
       <Search />
+      <ExpensesList />
     </StyledExpenses>
   );
 };

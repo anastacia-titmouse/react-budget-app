@@ -4,10 +4,10 @@ import { Form } from "./components/Form/Form";
 
 export const App = () => {
   return (
-    <div>
+    <>
       <Budget />
       <Expenses />
       <Form />
-    </div>
+    </>
   );
 };

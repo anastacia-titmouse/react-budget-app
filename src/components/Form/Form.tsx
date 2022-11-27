@@ -29,22 +29,23 @@ export const Form = () => {
 
   return (
     <StyledForm onSubmit={handleSubmit(onSubmit)}>
-      <Title label="Add Expenses" />
+      <Title label="Add Expense" />
 
       <StyledInputForm
         type="text"
         placeholder="enter name ..."
         {...register("title", {
-          required: "name is required",
+          required: "Name is required",
           maxLength: { value: 10, message: "Maximum 20 letters" },
         })}
       />
       <span className="form-field__error">{errors.title && errors.title.message}</span>
+
       <StyledInputForm
         type="text"
         placeholder="enter price ..."
         {...register("cost", {
-          required: "price is required",
+          required: "Price is required",
           maxLength: { value: 10, message: "Maximum 10 letters" },
           pattern: { value: /^[ 0-9]+$/, message: "Only numbers please" },
         })}
