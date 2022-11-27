@@ -23,11 +23,23 @@ export const useBudgetContextValue = () => {
         remaining: ctx.budget - ctx.spending,
       }));
     },
+    returnRemaining: () => {
+      setBudgetContext((ctx) => ({
+        ...ctx,
+        remaining: ctx.remaining + ctx.spending,
+      }));
+    },
     spending: 0,
     setSpending: (value) => {
       setBudgetContext((ctx) => ({
         ...ctx,
         spending: ctx.spending + value,
+      }));
+    },
+    returnSpending: (value) => {
+      setBudgetContext((ctx) => ({
+        ...ctx,
+        spending: ctx.spending - value,
       }));
     },
   }));

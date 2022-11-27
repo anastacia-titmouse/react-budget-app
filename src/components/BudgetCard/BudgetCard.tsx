@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useBudgetContext } from "../../context/BudgetContext/BudgetContext";
 import { useCurrencyContext } from "../../context/CurrencyContext/CurrencyContext";
 import { useInput } from "../../hooks/useInput";
-import { StyledBudgetCard, StyledButton, StyledTitle } from "./budgetCardStyled";
+import { StyledBudgetCard, StyledButton, StyledInput, StyledTitle } from "./budgetCardStyled";
 
 export const BudgetCard = () => {
   const inputValue = useInput();
@@ -23,13 +23,14 @@ export const BudgetCard = () => {
     <StyledBudgetCard>
       {isEditMode ? (
         <>
-          <input type="text" {...inputValue} />
+          <StyledInput placeholder="Enter budget..." type="number" {...inputValue} />
           <StyledButton onClick={handleSave}>Save</StyledButton>
         </>
       ) : (
         <>
           <StyledTitle>
-            Budget{currentCurrency.value}:{budget}
+            Budget: {currentCurrency.value}
+            {budget}
           </StyledTitle>
           <StyledButton onClick={handleEdit}>Edit</StyledButton>
         </>

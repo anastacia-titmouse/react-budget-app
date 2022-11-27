@@ -1,17 +1,22 @@
 import { useBudgetContext } from "../../context/BudgetContext/BudgetContext";
 import { useCurrencyContext } from "../../context/CurrencyContext/CurrencyContext";
-import { RemainingCardStyled, RemainingCardText } from "./remainingStyled";
+import { RemainingCardStyled } from "./remainingStyled";
 
 export const RemainingCard = () => {
   const { currentCurrency } = useCurrencyContext();
   const { remaining } = useBudgetContext();
+  if (remaining < 0) {
+    return (
+      <RemainingCardStyled error>
+        Overspending by {currentCurrency.value}
+        {Math.abs(remaining)}
+      </RemainingCardStyled>
+    );
+  }
   return (
     <RemainingCardStyled>
-      <RemainingCardText>
-        {" "}
-        Remaining: {currentCurrency.value}
-        {remaining}
-      </RemainingCardText>
+      Remaining: {currentCurrency.value}
+      {remaining}
     </RemainingCardStyled>
   );
 };

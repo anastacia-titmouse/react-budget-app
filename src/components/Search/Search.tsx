@@ -10,7 +10,7 @@ export const Search = () => {
   const debounceValue = useDebounce<string>(search.value, 700);
   useEffect(() => {
     searchExpense(debounceValue);
-  }, [debounceValue, searchExpense]); // тут не понял почему у меня линтер требовал searchExpense
+  }, [debounceValue, searchExpense]);
 
   return <StyledSearch placeholder="search ..." type="search" {...search} />;
 };

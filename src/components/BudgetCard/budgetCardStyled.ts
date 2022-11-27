@@ -1,30 +1,50 @@
 import styled from "styled-components";
+import { Color } from "../../config/color";
 
 export const StyledBudgetCard = styled.div`
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 25px 30px;
-  background-color: #7cc6fe;
+  justify-content: space-between;
+  gap: 50px;
+  background-color: ${Color.BudgetBlue};
   border-radius: 10px;
+  padding: 40px 30px;
 `;
 
-export const StyledTitle = styled.p`
-  font-family: Arial, Helvetica, sans-serif;
-  font-style: normal;
-  font-weight: 500;
+export const StyledInput = styled.input`
+  border: none;
+  background-color: transparent;
+  color: black;
   font-size: 20px;
-  line-height: 24px;
+  font-weight: 500;
+  &::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+  }
+  &:focus-visible {
+    outline: none;
+  }
 `;
 
 export const StyledButton = styled.button`
-  width: 85px;
-  height: 36px;
-  border-radius: 10px;
+  background-color: #fff;
   border: none;
-  font-family: Arial, Helvetica, sans-serif;
-  font-style: normal;
+  border-radius: 10px;
+  padding: 5px 20px;
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.6);
+  }
+
+  @media (max-width: 390px) {
+    font-size: 13px;
+  }
+`;
+
+export const StyledTitle = styled.p`
+  font-size: 20px;
   font-weight: 500;
-  font-size: 14px;
-  color: #000000;
+  @media (max-width: 390px) {
+    font-size: 16px;
+  }
 `;
