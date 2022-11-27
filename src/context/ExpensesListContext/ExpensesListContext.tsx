@@ -1,22 +1,5 @@
-import { createContext, ReactNode, useContext, useState } from "react";
-
-interface IExpensesContextProviderProps {
-  children: ReactNode;
-}
-
-interface IExpense {
-  id: string;
-  title: string;
-  cost: number;
-}
-
-interface IExpensesContext {
-  expenses: IExpense[];
-  setNewExpense: (expense: IExpense) => void;
-  deleteExpense: (id: string) => void;
-  searchExpense: (name: string) => void;
-  searchValue: string;
-}
+import { createContext, useContext, useState } from "react";
+import { IExpensesContext, IExpensesContextProviderProps } from "./types";
 
 export const ExpensesContext = createContext<IExpensesContext>({} as IExpensesContext);
 
