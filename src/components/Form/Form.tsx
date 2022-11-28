@@ -16,13 +16,11 @@ export const Form = () => {
   } = useForm<IFormData>();
 
   const { setNewExpense } = useExpensesContext();
-  const { budget, setRemaining, setSpending } = useBudgetContext();
+  const { budget } = useBudgetContext();
 
   const onSubmit: SubmitHandler<IFormData> = ({ title, cost }) => {
     if (budget > 0) {
       setNewExpense({ title, cost, id: v4() });
-      setSpending(+cost);
-      setRemaining();
       reset();
     }
   };

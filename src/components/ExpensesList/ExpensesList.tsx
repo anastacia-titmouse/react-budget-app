@@ -9,6 +9,7 @@ export const ExpensesList = () => {
   useEffect(() => {
     setSearchExpenses(expenses.filter((exp) => exp.title.toLowerCase().includes(searchValue)));
   }, [searchValue, expenses]);
+
   if (!searchExpenses.length) {
     return <StyledEmptyList>Oooops!🙈</StyledEmptyList>;
   }

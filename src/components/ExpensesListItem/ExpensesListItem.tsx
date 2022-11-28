@@ -7,7 +7,6 @@ import {
   StyledItemText,
   StyledListItem,
 } from "./listItemStyled";
-import { useBudgetContext } from "../../context/BudgetContext/BudgetContext";
 
 interface IProps {
   title: string;
@@ -16,13 +15,10 @@ interface IProps {
 }
 
 export const ExpensesListItem = ({ title, cost, id }: IProps) => {
-  const { returnRemaining, returnSpending } = useBudgetContext();
   const { currentCurrency } = useCurrencyContext();
   const { deleteExpense } = useExpensesContext();
   const handleDelete = () => {
     deleteExpense(id);
-    returnRemaining(+cost);
-    returnSpending(cost);
   };
   return (
     <StyledListItem>
